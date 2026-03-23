@@ -1,0 +1,30 @@
+music_station = "chaosx_super_event_station"
+
+# Override the base mod's station file so the music player only shows
+# human-readable entries. The detailed internal chaosx_super_event_* volume
+# variants stay playable by ID when called by script, but they are not listed
+# in the station UI here.
+music = {
+	song = "default"
+	chance = {
+		factor = 0
+	}
+}
+music = {
+	song = "zombies_music"
+	chance = {
+		factor = 0
+	}
+}
+music = {
+	song = "world_revolution"
+	chance = {
+		factor = 0
+	}
+}
+music = {
+	song = "tomorrows_girls"
+	chance = {
+		factor = 0
+	}
+}
