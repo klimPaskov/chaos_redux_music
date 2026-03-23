@@ -1,0 +1,27 @@
+music_station = "chaosx_super_event_station"
+
+# This extra track is visible in the Chaos Redux super event station.
+# It is not a replacement ID from the base mod.
+music = {
+	song = "tomorrows_girls"
+	chance = {
+		factor = 0
+	}
+}
+
+# Replacement rule for Chaos Redux super event music:
+# - If you want to replace an existing base-mod super event track, reuse the
+#   exact same song ID in a .asset file in this mod.
+# - Do not add a second station entry for that replacement ID here.
+#   The main mod already assigns those IDs to chaosx_super_event_station, so
+#   redefining the ID in this mod swaps the audio while keeping the same slot.
+#
+# Example replacement asset entry:
+# music = {
+# 	name = "world_revolution"
+# 	file = "world_revolution_copyrighted.ogg"
+# 	volume = 2.00
+# }
+#
+# Add a station entry here only for brand new song IDs that do not already
+# exist in Chaos Redux.
