@@ -1,6 +1,8 @@
 # Chaos Redux Music companion mod.
 # Override existing song IDs here so this mod can replace tracks used by
 # vanilla or Chaos Redux without editing the gameplay mod.
+# If a Chaos Redux super event song ID is redefined here with the same name,
+# the old base-mod audio is replaced rather than duplicated.
 music = {
 	name = "maintheme"
 	file = "tomorrows_girls.ogg"
