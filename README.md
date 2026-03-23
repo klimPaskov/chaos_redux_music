@@ -26,8 +26,8 @@ definitions. If you add more tracks later:
 
 1. Add or update the song definition in `music/chaos_redux_music_overrides.asset`
    or another `.asset` file.
-2. Add a station entry to `music/chaos_redux_music_super_event_station.txt`
-   only if the song is a brand new ID.
+2. If the song should appear in the station UI, add it to
+   `music/chaosx_super_event_music.txt`.
 3. If the goal is to replace an existing Chaos Redux super event track, do not
    add a new station entry. Reuse the exact existing song ID in a `.asset`
    definition instead so the base mod entry stays in place but its audio is
@@ -49,3 +49,8 @@ main mod keep calling the same song, and the companion mod swaps only the audio
 definition behind it. That is how the base tracks get effectively disabled and
 replaced when this music mod is enabled: the original station slot and call site
 stay the same, but the reused ID now points at the companion mod's audio file.
+
+This mod also overrides the base mod's `music/chaosx_super_event_music.txt`
+station file so the music player does not list internal
+`chaosx_super_event_*` helper IDs. Only the curated visible entries should stay
+in the station UI.
