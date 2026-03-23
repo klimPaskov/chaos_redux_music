@@ -34,6 +34,8 @@ definitions. If you add more tracks later:
    swapped out by this mod.
 4. Add matching localisation keys in
    `localisation/english/chaos_redux_music_l_english.yml`.
+   Do not redefine vanilla localisation keys such as `maintheme`, or the game
+   will log duplicate localisation warnings.
 
 ## Integration strategy for future super event music
 
