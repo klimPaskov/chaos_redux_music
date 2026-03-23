@@ -12,27 +12,6 @@ dropped into `music/` outside git.
 It exists so music with separate copyright constraints can live outside the main
 gameplay mod while still integrating with the same music IDs and systems.
 
-## Current implementation
-
-The companion mod currently ships one frontend theme override:
-
-- Song ID: `maintheme`
-- File: `music/tomorrows_girls.ogg`
-- Asset definition: `music/chaos_redux_music_overrides.asset`
-- Localisation key: `maintheme`
-
-The asset file redefines the existing `maintheme` song ID instead of inventing a
-new one. This mirrors vanilla's `music/music.asset` and lets the companion mod
-replace the loading/front-end theme that the game already knows how to play.
-
-The same audio is also exposed as a normal song ID, `tomorrows_girls`, so it can
-be assigned to the Chaos Redux super event station without creating a separate
-music mod station.
-
-`music/chaos_redux_music_super_event_station.txt` is intentionally bound to
-`chaosx_super_event_station`. Future companion super event songs should be added
-there so they appear in the same station Chaos Redux already uses.
-
 ## Repository policy
 
 - Do not commit any sound files.
@@ -43,13 +22,7 @@ there so they appear in the same station Chaos Redux already uses.
 ## Local setup
 
 Place local audio files in `music/` with the filenames expected by the asset
-definitions. For the current beta wiring:
-
-- `music/tomorrows_girls.ogg` is the frontend loading theme via `maintheme`.
-- `music/tomorrows_girls.ogg` is also exposed as `tomorrows_girls` in
-  `chaosx_super_event_station`.
-
-If you add more tracks later:
+definitions. If you add more tracks later:
 
 1. Add or update the song definition in `music/chaos_redux_music_overrides.asset`
    or another `.asset` file.
@@ -68,42 +41,6 @@ Chaos Redux super event music is currently keyed through song IDs defined in
 `music/chaosx_super_event_music.asset` in the main mod. To replace one of those
 tracks in the companion mod, define the exact same `name` in a music asset inside
 this mod.
-
-Examples of existing IDs in the main mod:
-
-- `default`
-- `zombies_music`
-- `world_revolution`
-- `chaosx_super_event_1_0_5`
-- `chaosx_super_event_1_1_0`
-- `chaosx_super_event_1_1_5`
-- `chaosx_super_event_1_2_0`
-- `chaosx_super_event_1_2_5`
-- `chaosx_super_event_1_3_0`
-- `chaosx_super_event_2_0_5`
-- `chaosx_super_event_2_1_0`
-- `chaosx_super_event_2_1_5`
-- `chaosx_super_event_2_2_0`
-- `chaosx_super_event_2_2_5`
-- `chaosx_super_event_2_3_0`
-- `chaosx_super_event_3_0_5`
-- `chaosx_super_event_3_1_0`
-- `chaosx_super_event_3_1_5`
-- `chaosx_super_event_3_2_0`
-- `chaosx_super_event_3_2_5`
-- `chaosx_super_event_3_3_0`
-- `chaosx_super_event_4_0_5`
-- `chaosx_super_event_4_1_0`
-- `chaosx_super_event_4_1_5`
-- `chaosx_super_event_4_2_0`
-- `chaosx_super_event_4_2_5`
-- `chaosx_super_event_4_3_0`
-- `chaosx_super_event_5_0_5`
-- `chaosx_super_event_5_1_0`
-- `chaosx_super_event_5_1_5`
-- `chaosx_super_event_5_2_0`
-- `chaosx_super_event_5_2_5`
-- `chaosx_super_event_5_3_0`
 
 Using the same ID is the seamless part: the scripted GUI and event systems in the
 main mod keep calling the same song, and the companion mod swaps only the audio
