@@ -1,0 +1,27 @@
+# Audio assets stay local and are not committed to this repository.
+*.flac
+*.ogg
+*.mp3
+*.wav
+*.m4a
+*.aac
+
+# Virtual environments and Python caches
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.rej
+*.log
+*:Zone.Identifier
