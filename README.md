@@ -26,11 +26,12 @@ new one. This mirrors vanilla's `music/music.asset` and lets the companion mod
 replace the loading/front-end theme that the game already knows how to play.
 
 The same audio is also exposed as a normal song ID, `tomorrows_girls`, so it can
-be assigned to the default soundtrack station without creating a separate station.
+be assigned to the Chaos Redux super event station without creating a separate
+music mod station.
 
-`music/chaos_redux_music_base_music.txt` is intentionally bound to `base_music`.
-Future companion songs should be added there so they appear in the vanilla/main
-music station rather than a custom Chaos Redux Music station.
+`music/chaos_redux_music_super_event_station.txt` is intentionally bound to
+`chaosx_super_event_station`. Future companion super event songs should be added
+there so they appear in the same station Chaos Redux already uses.
 
 ## Repository policy
 
@@ -45,16 +46,20 @@ Place local audio files in `music/` with the filenames expected by the asset
 definitions. For the current beta wiring:
 
 - `music/tomorrows_girls.ogg` is the frontend loading theme via `maintheme`.
-- `music/tomorrows_girls.ogg` is also exposed as `tomorrows_girls` in the
-  default `base_music` station.
+- `music/tomorrows_girls.ogg` is also exposed as `tomorrows_girls` in
+  `chaosx_super_event_station`.
 
 If you add more tracks later:
 
 1. Add or update the song definition in `music/chaos_redux_music_overrides.asset`
    or another `.asset` file.
-2. Add the song to `music/chaos_redux_music_base_music.txt` so it appears in
-   the default music station.
-3. Add matching localisation keys in
+2. Add a station entry to `music/chaos_redux_music_super_event_station.txt`
+   only if the song is a brand new ID.
+3. If the goal is to replace an existing Chaos Redux super event track, do not
+   add a new station entry. Reuse the exact existing song ID in a `.asset`
+   definition instead so the base mod entry stays in place but its audio is
+   swapped out by this mod.
+4. Add matching localisation keys in
    `localisation/english/chaos_redux_music_l_english.yml`.
 
 ## Integration strategy for future super event music
@@ -102,4 +107,6 @@ Examples of existing IDs in the main mod:
 
 Using the same ID is the seamless part: the scripted GUI and event systems in the
 main mod keep calling the same song, and the companion mod swaps only the audio
-definition behind it.
+definition behind it. That is how the base tracks get effectively disabled and
+replaced when this music mod is enabled: the original station slot and call site
+stay the same, but the reused ID now points at the companion mod's audio file.
