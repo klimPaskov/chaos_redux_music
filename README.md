@@ -36,6 +36,8 @@ definitions. If you add more tracks later:
    `localisation/english/chaos_redux_music_l_english.yml`.
    Do not redefine vanilla localisation keys such as `maintheme`, or the game
    will log duplicate localisation warnings.
+5. Do not redefine vanilla music IDs such as `maintheme` in a `.asset` file.
+   Override the actual audio by replacing the vanilla filename instead.
 
 ## Integration strategy for future super event music
 
@@ -54,3 +56,7 @@ This mod also overrides the base mod's `music/chaosx_super_event_music.txt`
 station file so the music player does not list internal
 `chaosx_super_event_*` helper IDs. Only the curated visible entries should stay
 in the station UI.
+
+For the frontend loading theme, the mod does not redefine `maintheme`. Instead,
+it supplies `music/hoi4mainthemeallies.ogg`, which replaces the vanilla file
+used by the existing `maintheme` definition.
