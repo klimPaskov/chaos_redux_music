@@ -22,6 +22,15 @@ music = {
 	}
 }
 music = {
+	song = "wendigo_music"
+	chance = {
+		factor = 0
+	}
+}
+
+
+# Chaos Redux Music
+music = {
 	song = "tomorrows_girls"
 	chance = {
 		factor = 0
