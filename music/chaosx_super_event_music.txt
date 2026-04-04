@@ -1,9 +1,8 @@
 music_station = "chaosx_super_event_station"
 
-# Override the base mod's station file so the music player only shows
-# human-readable entries. The detailed internal chaosx_super_event_* volume
-# variants stay playable by ID when called by script, but they are not listed
-# in the station UI here.
+# Keep only curated entries visible in the music player.
+# Internal chaosx_super_event_* helper IDs are still valid song IDs when
+# called directly by script, but they do not need station entries.
 music = {
 	song = "default"
 	chance = {
